@@ -1,4 +1,5 @@
-const cartBnt = document.querySelector('.button-cart');
+function cart() {
+  const cartBnt = document.querySelector('.button-cart');
 const cart = document.getElementById('modal-cart');
 const closeBtn = cart.querySelector('.modal-close');
 
@@ -9,3 +10,6 @@ cartBnt.addEventListener('click', function() {
 closeBtn.addEventListener('click', function() {
   cart.style.display = '';
 })
+};
+
+cart();
