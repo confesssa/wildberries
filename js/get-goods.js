@@ -2,11 +2,14 @@ const getGoods = () => {
 const links = document.querySelectorAll('.navigation-link');
 
 const getData = () => {
-  fetch('db/db.json')
+  fetch('https://test-3fd0f-default-rtdb.firebaseio.com/db.json')
     .then((res) => {
       return res.json()
     })
-    .then((data) => console.log(data))
+    .then((data) => {
+      localStorage.setItem('data', JSON.stringify(data));
+      console.log(JSON.parse(localStorage.getItem('data')));
+    })
 };
 
 links.forEach((link) => {
