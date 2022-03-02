@@ -59,10 +59,12 @@ if (localStorage.getItem('goods') && window.location.pathname === '/goods.html')
   renderGoods(JSON.parse(localStorage.getItem('goods')))
 }
 
+if (viewAll) {
   viewAll.addEventListener('click', (event) => {
     event.preventDefault();
     getData();
   });
+}
 }
 
 
