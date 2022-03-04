@@ -6,6 +6,8 @@ function cart() {
   const cartTable = document.querySelector('.cart-table__goods');
   const modalForm = document.querySelector('.modal-form');
   const cartTableTotal = document.querySelector('.card-table__total');
+  const inputName = document.querySelector('.modal-input[name="nameCustomer"]');
+  const inputPhone = document.querySelector('.modal-input[name="phoneCustomer"]');
 
 const renderTotalCost = () => {
   const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
@@ -121,10 +123,15 @@ const sendForm = () => {
     method: 'POST',
     body: JSON.stringify({
       cart: cartArray,
-      name: '',
-      phone: ''
+      name: inputName.value,
+      phone: inputPhone.value
     })
   }).then(() => cart.style.display = '');
+  console.log(inputName.value);
+
+  inputName.value = '';
+  inputPhone.value = '';
+  console.log(inputName.value);
 }
 
 modalForm.addEventListener('submit', (e) => {

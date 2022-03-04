@@ -519,6 +519,14 @@ button {
     border-bottom-left-radius: 0;
 }
 
+.card .button {
+  cursor: not-allowed;
+}
+
+.short-goods .button {
+  cursor: not-allowed;
+}
+
 
 @media (max-width: 1200px) {
     .slide-1 {
