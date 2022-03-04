@@ -1,10 +1,21 @@
 function cart() {
   const cartBtn = document.querySelector('.button-cart');
-const cart = document.getElementById('modal-cart');
-const closeBtn = cart.querySelector('.modal-close');
-const goodsContainer = document.querySelector('.long-goods-list');
-const cartTable = document.querySelector('.cart-table__goods');
-const modalForm = document.querySelector('.modal-form');
+  const cart = document.getElementById('modal-cart');
+  const closeBtn = cart.querySelector('.modal-close');
+  const goodsContainer = document.querySelector('.long-goods-list');
+  const cartTable = document.querySelector('.cart-table__goods');
+  const modalForm = document.querySelector('.modal-form');
+  const cartTableTotal = document.querySelector('.card-table__total');
+
+const renderTotalCost = () => {
+  const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+  const sum = cart.reduce((acc, good) => {
+    return acc + (+good.count * + good.price);
+  }, 0)
+
+  cartTableTotal.innerHTML = sum;
+
+}
 
 const deleteCartItem = (id) => {
   const cart = JSON.parse(localStorage.getItem('cart'));
@@ -100,6 +111,7 @@ const renderCartGoods = (goods) => {
       }
     })
   })
+  renderTotalCost();
 }
 
 const sendForm = () => {
@@ -118,6 +130,7 @@ const sendForm = () => {
 modalForm.addEventListener('submit', (e) => {
   e.preventDefault();
   sendForm();
+  localStorage.removeItem('cart');
 })
 
 cartBtn.addEventListener('click', () => {
