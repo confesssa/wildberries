@@ -519,6 +519,10 @@ button {
     border-bottom-left-radius: 0;
 }
 
+.swiper-wrapper .button {
+  cursor: not-allowed;
+}
+
 .card .button {
   cursor: not-allowed;
 }

@@ -15,7 +15,7 @@ const renderTotalCost = () => {
     return acc + (+good.count * + good.price);
   }, 0)
 
-  cartTableTotal.innerHTML = sum;
+  cartTableTotal.innerHTML = "$" + sum;
 
 }
 
